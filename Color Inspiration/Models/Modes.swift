@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Mode: CaseIterable {
+enum Mode: String, CaseIterable {
     case monochrome
     case monochromeDark
     case monochromeLight

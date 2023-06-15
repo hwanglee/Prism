@@ -1,5 +1,5 @@
 //
-//  PickerStyle.swift
+//  ButtonStyle.swift
 //  Color Inspiration
 //
 //  Created by Hwang Lee on 6/14/23.
@@ -7,23 +7,26 @@
 
 import SwiftUI
 
-struct PickerStyle: ViewModifier {
+struct ButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .tint(.primary)
             .font(.callout)
             .fontDesign(.monospaced)
             .fontWeight(.light)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 14)
+            .frame(alignment: .center)
     }
 }
 
 extension View {
-    func pickerStyle() -> some View {
-        modifier(PickerStyle())
+    func buttonStyle() -> some View {
+        modifier(ButtonStyle())
     }
 }
 
 #Preview {
     Text("Testing")
-        .pickerStyle()
+        .buttonStyle()
 }

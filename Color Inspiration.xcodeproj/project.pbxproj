@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1455EA2D2A3A8CFD0002C5D5 /* ColorGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455EA2C2A3A8CFD0002C5D5 /* ColorGrid.swift */; };
 		145A058D2A3A962C00BC0712 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A058C2A3A962C00BC0712 /* FavoriteButton.swift */; };
-		145A05902A3A9A3200BC0712 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A058F2A3A9A3200BC0712 /* PickerStyle.swift */; };
+		145A05902A3A9A3200BC0712 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A058F2A3A9A3200BC0712 /* ButtonStyle.swift */; };
 		145A05942A3A9BAC00BC0712 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A05932A3A9BAC00BC0712 /* GalleryButton.swift */; };
 		145A05962A3A9D5A00BC0712 /* FavoriteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A05952A3A9D5A00BC0712 /* FavoriteColor.swift */; };
 		145A05982A3A9F9A00BC0712 /* GalleryGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A05972A3A9F9A00BC0712 /* GalleryGrid.swift */; };
@@ -30,6 +30,8 @@
 		149B9E322A395B8C00A2533A /* CircleColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B9E312A395B8C00A2533A /* CircleColorPicker.swift */; };
 		149B9E342A39638F00A2533A /* ModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B9E332A39638F00A2533A /* ModePicker.swift */; };
 		149B9E362A39744D00A2533A /* CountPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B9E352A39744D00A2533A /* CountPicker.swift */; };
+		14E5B4CA2A3AD0C500CCB7AF /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5B4C92A3AD0C500CCB7AF /* SettingsButton.swift */; };
+		14E5B4CC2A3AD23E00CCB7AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5B4CB2A3AD23E00CCB7AF /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,7 @@
 /* Begin PBXFileReference section */
 		1455EA2C2A3A8CFD0002C5D5 /* ColorGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGrid.swift; sourceTree = "<group>"; };
 		145A058C2A3A962C00BC0712 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
-		145A058F2A3A9A3200BC0712 /* PickerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
+		145A058F2A3A9A3200BC0712 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		145A05932A3A9BAC00BC0712 /* GalleryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryButton.swift; sourceTree = "<group>"; };
 		145A05952A3A9D5A00BC0712 /* FavoriteColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteColor.swift; sourceTree = "<group>"; };
 		145A05972A3A9F9A00BC0712 /* GalleryGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryGrid.swift; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		149B9E312A395B8C00A2533A /* CircleColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleColorPicker.swift; sourceTree = "<group>"; };
 		149B9E332A39638F00A2533A /* ModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModePicker.swift; sourceTree = "<group>"; };
 		149B9E352A39744D00A2533A /* CountPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountPicker.swift; sourceTree = "<group>"; };
+		14E5B4C92A3AD0C500CCB7AF /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		14E5B4CB2A3AD23E00CCB7AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,7 @@
 		145A058E2A3A9A2800BC0712 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				145A058F2A3A9A3200BC0712 /* PickerStyle.swift */,
+				145A058F2A3A9A3200BC0712 /* ButtonStyle.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -194,6 +198,8 @@
 				145A058C2A3A962C00BC0712 /* FavoriteButton.swift */,
 				145A05932A3A9BAC00BC0712 /* GalleryButton.swift */,
 				145A05972A3A9F9A00BC0712 /* GalleryGrid.swift */,
+				14E5B4C92A3AD0C500CCB7AF /* SettingsButton.swift */,
+				14E5B4CB2A3AD23E00CCB7AF /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,11 +356,13 @@
 				146F47FD2A30319A002CD7BA /* Color+Random.swift in Sources */,
 				146F48022A303582002CD7BA /* Color+Components.swift in Sources */,
 				146F47F42A302DF7002CD7BA /* ColorRecommendations.swift in Sources */,
+				14E5B4CC2A3AD23E00CCB7AF /* SettingsView.swift in Sources */,
 				149B9E302A3957D900A2533A /* Modes.swift in Sources */,
-				145A05902A3A9A3200BC0712 /* PickerStyle.swift in Sources */,
+				145A05902A3A9A3200BC0712 /* ButtonStyle.swift in Sources */,
 				149B9E322A395B8C00A2533A /* CircleColorPicker.swift in Sources */,
 				146F47FA2A302F28002CD7BA /* HomeView.swift in Sources */,
 				149B9E362A39744D00A2533A /* CountPicker.swift in Sources */,
+				14E5B4CA2A3AD0C500CCB7AF /* SettingsButton.swift in Sources */,
 				145A05982A3A9F9A00BC0712 /* GalleryGrid.swift in Sources */,
 				1455EA2D2A3A8CFD0002C5D5 /* ColorGrid.swift in Sources */,
 				145A05942A3A9BAC00BC0712 /* GalleryButton.swift in Sources */,

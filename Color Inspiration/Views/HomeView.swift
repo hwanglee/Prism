@@ -13,6 +13,8 @@ struct HomeView: View {
     
     var networkService = NetworkService()
     
+    @AppStorage("leftHandedMode") private var leftHandedMode = false
+    @AppStorage("mode") private var mode = Mode.monochrome.rawValue
     @Environment(\.modelContext) private var modelContext
     @State var selectedColor = Color.random
     @State var colors: [Color] = [.clear]
@@ -25,7 +27,7 @@ struct HomeView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: rowCount)
     
     var body: some View {
-        VStack(spacing: 28) {
+        VStack(spacing: 20) {
             ColorGrid(colors: colors)
                 .onTapGesture(count: 2) {
                     isFavorited.toggle()
@@ -34,26 +36,24 @@ struct HomeView: View {
                     selectedColor = .random
                 }
             
-            VStack(alignment: .trailing, spacing: 14) {
+            VStack(alignment: .trailing, spacing: 0) {
                 ModePicker(selectedMode: $selectedMode)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 
                 CountPicker(count: $count)
+                
+                SettingsButton()
             }
-            .padding(.horizontal, 14)
             
             HStack {
                 GalleryButton(isSheetOpened: $isSheetOpened)
                 
                 CircleColorPicker(selectedColor: $selectedColor)
                     .frame(maxWidth: .infinity)
-//                    .onLongPressGesture {
-//                        selectedColor = .random
-//                    }
                 
                 FavoriteButton(isFavorited: $isFavorited)
             }
-            .padding(.top, 20)
+            .padding(.top, 14)
             .padding(.bottom, 60)
         }
         .sheet(isPresented: $isSheetOpened) {
@@ -77,6 +77,10 @@ struct HomeView: View {
             
             saveColor()
         }
+        .task {
+            selectedMode = Mode(rawValue: mode) ?? Mode.monochrome
+        }
+        .environment(\.layoutDirection, leftHandedMode ? .rightToLeft : .leftToRight)
     }
     
     func fetchColors() {
@@ -100,8 +104,6 @@ struct HomeView: View {
     }
     
     func saveColor() {
-        print(selectedColor.description)
-        print(selectedColor.hashValue)
         let favoritedColor = FavoriteColor(name: "\(selectedColor.description)",
                                            r: selectedColor.components.red,
                                            g: selectedColor.components.green,

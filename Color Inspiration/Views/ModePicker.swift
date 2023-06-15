@@ -19,7 +19,7 @@ struct ModePicker: View {
             }
         } label: {
             Label(selectedMode.displayName, systemImage: "line.3.horizontal.decrease.circle")
-                .pickerStyle()
+                .buttonStyle()
         }
     }
 }

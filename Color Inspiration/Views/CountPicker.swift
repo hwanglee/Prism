@@ -26,7 +26,7 @@ struct CountPicker: View {
             }
         } label: {
             Label(formatNumber(count), systemImage: "rectangle.stack")
-                .pickerStyle()
+                .buttonStyle()
         }
     }
     
