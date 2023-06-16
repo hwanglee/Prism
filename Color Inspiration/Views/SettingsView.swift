@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage("leftHandedMode") private var leftHandedMode = false
     @AppStorage("mode") private var mode = Mode.monochrome.rawValue
+    
     @State var selectedMode = Mode.monochrome
     
     var body: some View {
@@ -37,7 +38,7 @@ struct SettingsView: View {
                     .tint(.primary)
                     
                     HStack {
-                        Text("Left Handed Mode")
+                        Text("Left Layout")
                         
                         Spacer()
                         
@@ -52,7 +53,6 @@ struct SettingsView: View {
                     }
                 }
                 .fontDesign(.monospaced)
-                .listStyle(.insetGrouped)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text("Settings")

@@ -15,7 +15,7 @@ struct ButtonStyle: ViewModifier {
             .fontDesign(.monospaced)
             .fontWeight(.light)
             .padding(.horizontal, 20)
-            .padding(.vertical, 14)
+            .padding(.vertical, 12)
             .frame(alignment: .center)
     }
 }
