@@ -21,8 +21,11 @@ struct GalleryGrid: View {
             if favoriteColors.isEmpty {
                 /// In case there aren't any search results, we can
                 /// show the new content unavailable view.
-                ContentUnavailableView.init("No Favorites", systemImage: "heart")
+                ContentUnavailableView("No Favorites", systemImage: "heart")
             }
+        }
+        .task {
+            print("HI")
         }
     }
 }

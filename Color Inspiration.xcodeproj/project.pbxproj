@@ -21,9 +21,9 @@
 		146F47E72A302DD6002CD7BA /* Color_InspirationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F47E62A302DD6002CD7BA /* Color_InspirationUITestsLaunchTests.swift */; };
 		146F47F42A302DF7002CD7BA /* ColorRecommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F47F32A302DF7002CD7BA /* ColorRecommendations.swift */; };
 		146F47FA2A302F28002CD7BA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F47F92A302F28002CD7BA /* HomeView.swift */; };
-		146F47FD2A30319A002CD7BA /* Color+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F47FC2A30319A002CD7BA /* Color+Random.swift */; };
 		146F48002A3031D8002CD7BA /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F47FF2A3031D8002CD7BA /* NetworkService.swift */; };
 		146F48022A303582002CD7BA /* Color+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F48012A303582002CD7BA /* Color+Components.swift */; };
+		147FDA1B2A44E7720078BD02 /* Color+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F47FC2A30319A002CD7BA /* Color+Random.swift */; };
 		149B9E2C2A39509500A2533A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B9E2B2A39509500A2533A /* Models.swift */; };
 		149B9E2E2A3956E500A2533A /* ColorSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B9E2D2A3956E500A2533A /* ColorSquare.swift */; };
 		149B9E302A3957D900A2533A /* Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B9E2F2A3957D900A2533A /* Modes.swift */; };
@@ -353,13 +353,13 @@
 			files = (
 				145A05962A3A9D5A00BC0712 /* FavoriteColor.swift in Sources */,
 				149B9E2E2A3956E500A2533A /* ColorSquare.swift in Sources */,
-				146F47FD2A30319A002CD7BA /* Color+Random.swift in Sources */,
 				146F48022A303582002CD7BA /* Color+Components.swift in Sources */,
 				146F47F42A302DF7002CD7BA /* ColorRecommendations.swift in Sources */,
 				14E5B4CC2A3AD23E00CCB7AF /* SettingsView.swift in Sources */,
 				149B9E302A3957D900A2533A /* Modes.swift in Sources */,
 				145A05902A3A9A3200BC0712 /* ButtonStyle.swift in Sources */,
 				149B9E322A395B8C00A2533A /* CircleColorPicker.swift in Sources */,
+				147FDA1B2A44E7720078BD02 /* Color+Random.swift in Sources */,
 				146F47FA2A302F28002CD7BA /* HomeView.swift in Sources */,
 				149B9E362A39744D00A2533A /* CountPicker.swift in Sources */,
 				14E5B4CA2A3AD0C500CCB7AF /* SettingsButton.swift in Sources */,
@@ -537,6 +537,7 @@
 				DEVELOPMENT_TEAM = H9X6NAZWVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Prism;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -566,6 +567,7 @@
 				DEVELOPMENT_TEAM = H9X6NAZWVY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Prism;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

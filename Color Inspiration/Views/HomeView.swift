@@ -27,6 +27,24 @@ struct HomeView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: rowCount)
     
     var body: some View {
+        let dragGesture = DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+            .onEnded { value in
+                print(value.translation)
+                switch(value.translation.width, value.translation.height) {
+                case (...0, -30...30):
+                    print("left swipe")
+                case (0..., -30...30):
+                    print("right swipe")
+                case (-100...100, ...0):
+                    selectedMode = selectedMode.previous()
+                case (-100...100, 0...):
+                    print("down swipe")
+                    selectedMode = selectedMode.next()
+                default:
+                    print("no clue")
+                }
+            }
+        
         VStack(spacing: 20) {
             ColorGrid(colors: colors)
                 .onTapGesture(count: 2) {
@@ -35,6 +53,7 @@ struct HomeView: View {
                 .onLongPressGesture {
                     selectedColor = .random
                 }
+                .gesture(dragGesture)
             
             VStack(alignment: .trailing, spacing: 0) {
                 ModePicker(selectedMode: $selectedMode)
@@ -113,6 +132,13 @@ struct HomeView: View {
             modelContext.insert(favoritedColor)
         } else {
             modelContext.delete(favoritedColor)
+        }
+        
+        do {
+            try modelContext.save()
+            print("SAVED")
+        } catch {
+            print(error)
         }
     }
 }
