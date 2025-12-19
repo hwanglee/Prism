@@ -10,13 +10,6 @@ import SwiftUI
 struct CountPicker: View {
     @Binding var count: Int
     
-    var formatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .spellOut
-        
-        return formatter
-    }()
-    
     var body: some View {
         Menu {
             Picker("Appearance", selection: $count) {
@@ -31,6 +24,9 @@ struct CountPicker: View {
     }
     
     func formatNumber(_ number: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .spellOut
+        
         let spelledOutNumber = formatter.string(from: NSNumber(value: number)) ?? ""
         
         return spelledOutNumber.capitalized.replacingOccurrences(of: "-", with: " ")

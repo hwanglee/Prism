@@ -11,11 +11,11 @@ struct SettingsView: View {
     @AppStorage("leftHandedMode") private var leftHandedMode = false
     @AppStorage("mode") private var mode = Mode.monochrome.rawValue
     
-    @State var selectedMode = Mode.monochrome
+    @State private var selectedMode = Mode.monochrome
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
-            let _ = print(mode)
             List {
                 Section("Defaults") {
                     Menu {
@@ -48,22 +48,29 @@ struct SettingsView: View {
                         }
                         .background(.clear)
                         .onTapGesture {
-                            leftHandedMode.toggle()
+                            withAnimation {
+                                leftHandedMode.toggle()
+                            }
                         }
                     }
                 }
-                .fontDesign(.monospaced)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("Settings")
-                            .fontDesign(.monospaced)
-                            .padding(.top, 20)
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Settings")
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Close")
                     }
                 }
             }
         }
+        .fontDesign(.monospaced)
         .onChange(of: selectedMode) { _, _ in
-            print(selectedMode.rawValue)
             mode = selectedMode.rawValue
         }
         .task {

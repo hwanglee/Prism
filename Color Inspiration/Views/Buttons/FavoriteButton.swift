@@ -11,13 +11,12 @@ struct FavoriteButton: View {
     @Binding var isFavorited: Bool
     
     var body: some View {
-        Button(action: {
+        Button {
             isFavorited.toggle()
-        }, label: {
+        } label: {
             Image(systemName: isFavorited ? "heart.fill" : "heart")
-                .frame(maxWidth: .infinity)
                 .font(.system(.largeTitle, weight: .light))
-        })
+        }
         .animation(.default, value: isFavorited)
         .tint(.primary)
     }

@@ -9,22 +9,11 @@ import SwiftUI
 import Observation
 
 struct HomeView: View {
-    static var rowCount = 4
-    
-    var networkService = NetworkService()
-    
+    @State var viewModel = ColorsViewModel()
     @AppStorage("leftHandedMode") private var leftHandedMode = false
     @AppStorage("mode") private var mode = Mode.monochrome.rawValue
     @Environment(\.modelContext) private var modelContext
-    @State var selectedColor = Color.random
-    @State var colors: [Color] = [.clear]
-    @State var count = rowCount
-    @State var selectedMode = Mode.allCases.first!
-    @State var scale: CGFloat = 1.0
     @State var isFavorited = false
-    @State var isSheetOpened = false
-    
-    let columns = Array(repeating: GridItem(.flexible()), count: rowCount)
     
     var body: some View {
         let dragGesture = DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
@@ -32,63 +21,66 @@ struct HomeView: View {
                 print(value.translation)
                 switch(value.translation.width, value.translation.height) {
                 case (...0, -30...30):
-                    print("left swipe")
+                    viewModel.selectedColor = .random
                 case (0..., -30...30):
-                    print("right swipe")
+                    viewModel.selectedColor = .random
                 case (-100...100, ...0):
-                    selectedMode = selectedMode.previous()
+                    viewModel.selectPreviousMode()
                 case (-100...100, 0...):
-                    print("down swipe")
-                    selectedMode = selectedMode.next()
+                    viewModel.selectNextMode()
                 default:
                     print("no clue")
                 }
             }
         
         VStack(spacing: 20) {
-            ColorGrid(colors: colors)
+            ColorGrid(colors: viewModel.colors)
                 .onTapGesture(count: 2) {
                     isFavorited.toggle()
                 }
                 .onLongPressGesture {
-                    selectedColor = .random
+                    viewModel.selectedColor = .random
                 }
                 .gesture(dragGesture)
             
             VStack(alignment: .trailing, spacing: 0) {
-                ModePicker(selectedMode: $selectedMode)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                ModePicker(selectedMode: $viewModel.selectedMode)
                 
-                CountPicker(count: $count)
+                CountPicker(count: $viewModel.count)
                 
                 SettingsButton()
             }
+            .frame(maxWidth: .infinity, alignment: .trailing)
             
             HStack {
-                GalleryButton(isSheetOpened: $isSheetOpened)
+                GalleryButton()
                 
-                CircleColorPicker(selectedColor: $selectedColor)
+                CircleColorPicker(selectedColor: $viewModel.selectedColor)
                     .frame(maxWidth: .infinity)
                 
                 FavoriteButton(isFavorited: $isFavorited)
             }
             .padding(.top, 14)
-            .padding(.bottom, 60)
+            .padding(.bottom, 40)
+            .padding(.horizontal, 40)
         }
-        .sheet(isPresented: $isSheetOpened) {
-            GalleryGrid()
-        }
-        .onChange(of: selectedColor, initial: true) { _, _ in
-            fetchColors()
-            
+        .onChange(of: viewModel.selectedColor, initial: true) { _, _ in
             let generator = UIImpactFeedbackGenerator(style: .soft)
             generator.impactOccurred()
+            
+            Task {
+                try? await viewModel.fetchColors()
+            }
         }
-        .onChange(of: count) { _, _ in
-            fetchColors()
+        .onChange(of: viewModel.count) { _, _ in
+            Task {
+                try? await viewModel.fetchColors()
+            }
         }
-        .onChange(of: selectedMode) { _, _ in
-            fetchColors()
+        .onChange(of: viewModel.selectedMode) { _, _ in
+            Task {
+                try? await viewModel.fetchColors()
+            }
         }
         .onChange(of: isFavorited) { _, _ in
             let generator = UIImpactFeedbackGenerator(style: .soft)
@@ -97,32 +89,13 @@ struct HomeView: View {
             saveColor()
         }
         .task {
-            selectedMode = Mode(rawValue: mode) ?? Mode.monochrome
+            viewModel.selectedMode = Mode(rawValue: mode) ?? .monochrome
         }
         .environment(\.layoutDirection, leftHandedMode ? .rightToLeft : .leftToRight)
     }
     
-    func fetchColors() {
-        Task {
-            do {
-                let colorInfo = try await networkService.fetchColorInfo(
-                    r: Int(selectedColor.components.red * 255),
-                    g: Int(selectedColor.components.green * 255),
-                    b: Int(selectedColor.components.blue * 255),
-                    mode: selectedMode,
-                    count: count
-                )
-                
-                colors = colorInfo.colors.map {
-                    Color(red: Double($0.rgb.r) / 255, green: Double($0.rgb.g) / 255, blue: Double($0.rgb.b) / 255)
-                }
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
     func saveColor() {
+        let selectedColor = viewModel.selectedColor
         let favoritedColor = FavoriteColor(name: "\(selectedColor.description)",
                                            r: selectedColor.components.red,
                                            g: selectedColor.components.green,

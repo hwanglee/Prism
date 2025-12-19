@@ -21,7 +21,7 @@ class NetworkService {
         
         guard let url = components.url else { throw NetworkError.invalidURL }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, _) = try await URLSession.shared.data(from: url)
         let colorInfo = try JSONDecoder().decode(ColorInfo.self, from: data)
         
         return colorInfo

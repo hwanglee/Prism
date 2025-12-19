@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1418A1532E864046005F2A50 /* ColorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1418A1522E864046005F2A50 /* ColorsViewModel.swift */; };
 		1455EA2D2A3A8CFD0002C5D5 /* ColorGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1455EA2C2A3A8CFD0002C5D5 /* ColorGrid.swift */; };
 		145A058D2A3A962C00BC0712 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A058C2A3A962C00BC0712 /* FavoriteButton.swift */; };
 		145A05902A3A9A3200BC0712 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145A058F2A3A9A3200BC0712 /* ButtonStyle.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1418A1522E864046005F2A50 /* ColorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewModel.swift; sourceTree = "<group>"; };
 		1455EA2C2A3A8CFD0002C5D5 /* ColorGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGrid.swift; sourceTree = "<group>"; };
 		145A058C2A3A962C00BC0712 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		145A058F2A3A9A3200BC0712 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
@@ -107,6 +109,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1418A1502E864000005F2A50 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				145A058C2A3A962C00BC0712 /* FavoriteButton.swift */,
+				145A05932A3A9BAC00BC0712 /* GalleryButton.swift */,
+				14E5B4C92A3AD0C500CCB7AF /* SettingsButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		1418A1512E864039005F2A50 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				1418A1522E864046005F2A50 /* ColorsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		1418A1542E864879005F2A50 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				149B9E312A395B8C00A2533A /* CircleColorPicker.swift */,
+				149B9E332A39638F00A2533A /* ModePicker.swift */,
+				149B9E352A39744D00A2533A /* CountPicker.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
 		145A058E2A3A9A2800BC0712 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +172,7 @@
 				146F47FE2A3031C8002CD7BA /* Services */,
 				146F47FB2A30318D002CD7BA /* Extensions */,
 				146F47F62A302EBD002CD7BA /* Views */,
+				1418A1512E864039005F2A50 /* View Models */,
 				146F47F52A302E01002CD7BA /* Models */,
 				146F47C72A302DD5002CD7BA /* ColorInspirationApp.swift */,
 				146F47CB2A302DD6002CD7BA /* Assets.xcassets */,
@@ -189,16 +220,12 @@
 		146F47F62A302EBD002CD7BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1418A1542E864879005F2A50 /* Pickers */,
+				1418A1502E864000005F2A50 /* Buttons */,
 				146F47F92A302F28002CD7BA /* HomeView.swift */,
 				149B9E2D2A3956E500A2533A /* ColorSquare.swift */,
-				149B9E312A395B8C00A2533A /* CircleColorPicker.swift */,
-				149B9E332A39638F00A2533A /* ModePicker.swift */,
-				149B9E352A39744D00A2533A /* CountPicker.swift */,
 				1455EA2C2A3A8CFD0002C5D5 /* ColorGrid.swift */,
-				145A058C2A3A962C00BC0712 /* FavoriteButton.swift */,
-				145A05932A3A9BAC00BC0712 /* GalleryButton.swift */,
 				145A05972A3A9F9A00BC0712 /* GalleryGrid.swift */,
-				14E5B4C92A3AD0C500CCB7AF /* SettingsButton.swift */,
 				14E5B4CB2A3AD23E00CCB7AF /* SettingsView.swift */,
 			);
 			path = Views;
@@ -365,6 +392,7 @@
 				14E5B4CA2A3AD0C500CCB7AF /* SettingsButton.swift in Sources */,
 				145A05982A3A9F9A00BC0712 /* GalleryGrid.swift in Sources */,
 				1455EA2D2A3A8CFD0002C5D5 /* ColorGrid.swift in Sources */,
+				1418A1532E864046005F2A50 /* ColorsViewModel.swift in Sources */,
 				145A05942A3A9BAC00BC0712 /* GalleryButton.swift in Sources */,
 				146F48002A3031D8002CD7BA /* NetworkService.swift in Sources */,
 				149B9E342A39638F00A2533A /* ModePicker.swift in Sources */,

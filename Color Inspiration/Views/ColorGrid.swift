@@ -10,8 +10,8 @@ import SwiftUI
 struct ColorGrid: View {
     public var colors: [Color]
     
-    private var columns: [GridItem] = [
-        GridItem(.flexible()),
+    private let columns: [GridItem] = [
+        GridItem(.flexible())
     ]
     
     init(colors: [Color]) {

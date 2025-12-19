@@ -11,12 +11,12 @@ struct SettingsButton: View {
     @State var isSettingsPresented = false
     
     var body: some View {
-        Button(action: {
+        Button {
             isSettingsPresented.toggle()
-        }, label: {
+        } label: {
             Label("Settings", systemImage: "gear")
                 .buttonStyle()
-        })
+        }
         .tint(.primary)
         .sheet(isPresented: $isSettingsPresented) {
             SettingsView()
